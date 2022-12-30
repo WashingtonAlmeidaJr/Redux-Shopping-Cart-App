@@ -5,6 +5,7 @@ import { cartActions } from "../store/cart-slice";
 import "./Cart.css";
 const Cart = () => {
   const quantity = useSelector((state) => state.cart.totalQuantity);
+
   const dispatch = useDispatch();
 
   const showCart = (e) => {

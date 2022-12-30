@@ -8,14 +8,14 @@ import CartItems from "./CartItems";
 
 const Layout = () => {
   const dispatch = useDispatch();
-  let total = 100;
+  const itemsList = useSelector((state) => state.cart.itemsList);
+  let total = 0;
 
   const showCart = useSelector((state) => state.cart.showCart);
 
-  const logoutHandler = (e) => {
-    e.preventDefault();
-    dispatch(authActions.logout());
-  };
+  itemsList.forEach((item) => {
+    total += item.totalPrice;
+  });
 
   return (
     <React.Fragment>
@@ -26,9 +26,6 @@ const Layout = () => {
         <div className="total-price">
           <h3>Total: ${total}</h3>
           <button className="orderBtn">Place Order</button>
-          <button className="orderBtn" onClick={logoutHandler}>
-            Log out
-          </button>
         </div>{" "}
       </div>
     </React.Fragment>
