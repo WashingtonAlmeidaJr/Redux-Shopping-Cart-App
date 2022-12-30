@@ -2,12 +2,15 @@ import React from "react";
 import Header from "./Header";
 import Products from "./Products";
 import "./Layout.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../store/auth-slice";
+import CartItems from "./CartItems";
 
 const Layout = () => {
   const dispatch = useDispatch();
   let total = 100;
+
+  const showCart = useSelector((state) => state.cart.showCart);
 
   const logoutHandler = (e) => {
     e.preventDefault();
@@ -19,6 +22,7 @@ const Layout = () => {
       <div className="layout">
         <Header />
         <Products />
+        {showCart && <CartItems />}
         <div className="total-price">
           <h3>Total: ${total}</h3>
           <button className="orderBtn">Place Order</button>

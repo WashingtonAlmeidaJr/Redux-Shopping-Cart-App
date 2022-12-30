@@ -1,3 +1,3 @@
 Branches
 
-AuthSlice- adding managing for login procedure
+AuthSlice- created a store with loggin and loggout functionalities.
