@@ -57,14 +57,14 @@ export const sendCartData = (cart) => {
     );
 
     const sendRequest = async () => {
-      const res = await fetch(
+      await fetch(
         "https://redux-http-4f261-default-rtdb.firebaseio.com/cartItems.json",
         {
           method: "PUT",
           body: JSON.stringify(cart),
         }
       );
-      const data = await res.json();
+      // const data = await res.json();
 
       dispatch(
         uiActions.showNotification({
